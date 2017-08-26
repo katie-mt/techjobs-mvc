@@ -40,14 +40,34 @@
 
         <!--display unordered list of all the jobs-->
         <!--loop over all the jobs.  Add loop syntax to the HTML element we want to repeat (th:each)-->
-        <ul>
-            <!-- ${} tells thymeleaf to look in the model for this value named jobs (list) and will iterate over the list-->
-            <!--Whenever we're using the th:each attribute, we're basically telling thymeleaf to repeat the-->
-            <!--current element (li tag) for each item in the list-->
-            <li th:each="jobs : ${jobs}" th:text="${jobs}"></li>
-                <!--if no jobs are listed and its size is not zero then display message-->
-                <!--<<p th:unless="${jobs} and ${jobs.size()}">no jobs found :(</p>-->
-        </ul>
+
+<!--naming it job listing.  th is the for loop.  for each job hashmap within jobs-->
+    <table class ="job-listing" th:each="jobsHashmap : ${jobs}">
+        <!--field in the jobHash-->
+        <tr th:each="field : ${jobsHashmap}">
+            <td th:text="${field.key}"></td>
+            <td th:text="${field.value}"></td>
+        </tr>
+    </table>
+
+            <!--display unordered list of all the jobs-->
+            <!--loop over all the jobs.  Add loop syntax to the HTML element we want to repeat (th:each)-->
+        <!--<ul>    -->
+            <!--<div th:each="jobArray : ${jobs}">-->
+                <!--<div class="container body-content" th:each="jobHash : ${jobArray}">-->
+                    <!--<table th:text="${jobHash.key}", th:text="${jobHash.value}"></table>-->
+                        <!--&lt;!&ndash;<td></td>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<ta></ta>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<table th:text="${jobHash.value}"></table>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; ${} tells thymeleaf to look in the model for this value named jobs (list) and will iterate over the list&ndash;&gt;-->
+            <!--&lt;!&ndash;Whenever we're using the th:each attribute, we're basically telling thymeleaf to repeat the&ndash;&gt;-->
+            <!--&lt;!&ndash;current element (li tag) for each item in the list&ndash;&gt;-->
+            <!--<li th:each="jobs : ${jobs}" th:text="${jobs}"></li>-->
+                <!--&lt;!&ndash;if no jobs are listed and its size is not zero then display message&ndash;&gt;-->
+                <!--&lt;!&ndash;<<p th:unless="${jobs} and ${jobs.size()}">no jobs found :(</p>&ndash;&gt;-->
+        <!--</ul>-->
 
     <!--test code for testing TO DO #1-->
     <!--<div class="container body-content">-->
