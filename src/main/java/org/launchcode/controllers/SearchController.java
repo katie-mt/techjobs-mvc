@@ -26,12 +26,12 @@ public class SearchController {
 
     // TODO #1 - Create handler to process search request and display results
     //value is results as referenced in search.html.  GET request to receive input from user
-    @RequestMapping(value = "/search/results", method = RequestMethod.GET)
+    @RequestMapping(value = "results", method = RequestMethod.GET)
     //two parameters, one for the input, one for the type of the search
     public String processSearchTool(@RequestParam String searchTerm, @RequestParam String searchType, Model model) {
         //similar functionality to listColumnValues in ListController.java
         //if there is an input search term
-        if (searchTerm.equals("all")) {
+        if (searchType.equals("all")) {
             //create an ArrayList made up of the jobs
             ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
             //adds the title and jobs to the ArrayList
@@ -44,6 +44,6 @@ public class SearchController {
             model.addAttribute("jobs", jobs);
         }
 
-            return "redirect";
+            return "search";
     }
 }

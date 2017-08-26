@@ -39,12 +39,7 @@
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
     <div class="container body-content">
-        <p>List of jobs:</p>
-        <ul>
-            <li th:each="action : ${actions}">
-                <a th:href="@{'/search/results' + ${action.key}}" th:text="${action.value}"></a>
-            </li>
-        </ul>
+        <p th:text="${jobs}"></p>
     </div>
 
 
