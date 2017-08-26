@@ -38,12 +38,24 @@
 
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
-    <div class="container body-content">
-        <p th:text="${jobs}"></p>
-    </div>
+        <!--display unordered list of all the jobs-->
+        <!--loop over all the jobs.  Add loop syntax to the HTML element we want to repeat (th:each)-->
+        <ul>
+            <!-- ${} tells thymeleaf to look in the model for this value named jobs (list) and will iterate over the list-->
+            <!--Whenever we're using the th:each attribute, we're basically telling thymeleaf to repeat the-->
+            <!--current element (li tag) for each item in the list-->
+            <li th:each="jobs : ${jobs}" th:text="${jobs}"></li>
+                <!--if no jobs are listed and its size is not zero then display message-->
+                <!--<<p th:unless="${jobs} and ${jobs.size()}">no jobs found :(</p>-->
+        </ul>
 
+    <!--test code for testing TO DO #1-->
+    <!--<div class="container body-content">-->
+        <!--<p th:text="${jobs}"></p>-->
+    <!--</div>-->
 
 </div>
 
 </body>
+
 </html>
