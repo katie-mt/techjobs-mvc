@@ -13,7 +13,7 @@
     <!-- TODO #3 - Use the same list display from search.html -->
     <!--naming it job listing.  th is the for loop.  for each job hashmap within jobs-->
     <table class ="job-listing" th:each="jobsHashmap : ${jobs}">
-        <!--field in the jobHash-->
+        <!--field in the jobHash, display key and value in table-->
         <tr th:each="field : ${jobsHashmap}">
             <td th:text="${field.key}"></td>
             <td th:text="${field.value}"></td>

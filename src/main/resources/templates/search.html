@@ -1,3 +1,5 @@
+<!--search form that gives the user the option of searching by a given column, or across all columns-->
+<!--template used to display search results, in addition to displaying the form-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
@@ -41,9 +43,9 @@
         <!--display unordered list of all the jobs-->
         <!--loop over all the jobs.  Add loop syntax to the HTML element we want to repeat (th:each)-->
 
-<!--naming it job listing.  th is the for loop.  for each job hashmap within jobs-->
+<!--naming it job listing.  for each job hashmap within jobs, loop over the hashmap-->
     <table class ="job-listing" th:each="jobsHashmap : ${jobs}">
-        <!--field in the jobHash-->
+        <!--field in the jobHash and adds the key and value to the table-->
         <tr th:each="field : ${jobsHashmap}">
             <td th:text="${field.key}"></td>
             <td th:text="${field.value}"></td>

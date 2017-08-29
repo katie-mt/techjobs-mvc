@@ -42,7 +42,7 @@ public class SearchController {
     //two parameters, one for the input, one for the type of the search
     public String processSearchTool(@RequestParam String searchTerm, @RequestParam String searchType, Model model) {
         //similar functionality to listColumnValues in ListController.java
-        //if there is an input search term
+        //if there is an input search term then...
         if (searchType.equals("all")) {
             //create an ArrayList made up of the jobs
             ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
@@ -50,7 +50,7 @@ public class SearchController {
             model.addAttribute("title", "Jobs with " + ListController.columnChoices.get(searchType) + ": " + searchTerm);
             model.addAttribute("jobs", jobs);
 
-            //if the search type is not "All" then
+            //if the search type is not "All" then display all the jobs
         } else {
             ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + ListController.columnChoices.get(searchType) + ": " + searchTerm);

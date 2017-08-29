@@ -1,3 +1,5 @@
+<!--template displays the list options using data from the columnChoices HashMap-->
+<!--passed in via the model as columns.-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head">
@@ -10,6 +12,7 @@
         <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
         <h2>View All</h2>
         <ul>
+            <!--Thymeleaf generates query parameters for the URL based on the key/value pairs specified-->
             <li th:each="column : ${columns}">
                 <a th:href="@{/list/values(column=${column.key})}" th:text="${column.value}"></a>
             </li>

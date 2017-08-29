@@ -1,3 +1,7 @@
+//controller provides functionality for users to see lists of all values
+//of a given data column: employer, location, skill, and position type.
+//  this is the /list page.
+
 package org.launchcode.controllers;
 
 import org.launchcode.models.JobData;
@@ -14,6 +18,7 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
+//constructor used to populate columnChoices with values via a HashMap
 public class ListController {
 
     static HashMap<String, String> columnChoices = new HashMap<>();
@@ -34,6 +39,8 @@ public class ListController {
         return "list";
     }
 
+    //controller uses the query parameter passed in as column to determine
+    //which values to fetch from JobData.  For example, "all" will fetch all job data
     @RequestMapping(value = "values")
     public String listColumnValues(Model model, @RequestParam String column) {
 
@@ -52,6 +59,9 @@ public class ListController {
 
     }
 
+    //we take two query parameters (column and value).
+    //User arrives at this handler method as a result of clicking on a link within our view
+    //only displays jobs matching a specific value in a specific column
     @RequestMapping(value = "jobs")
     public String listJobsByColumnAndValue(Model model,
             @RequestParam String column, @RequestParam String value) {

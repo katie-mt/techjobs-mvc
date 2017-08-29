@@ -1,3 +1,6 @@
+//index controller displays the home page for the app.
+// Renders index.html template
+
 package org.launchcode.controllers;
 
 import org.springframework.stereotype.Controller;
