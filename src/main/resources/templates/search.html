@@ -41,12 +41,7 @@
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
 
     <div th:if="${jobs}">
-        <div th:if="${jobs.size()==1}">
-            <h2 th:text="${jobs.size()} + ' result.'"></h2>
-        </div>
-        <div th:if="${jobs.size()!=1}">
-            <h2 th:text="${jobs.size()} + ' results.'"></h2>
-        </div>
+            <h1 th:text="${jobs.size()} + ' total results'"></h1>
     </div>
     <!--display unordered list of all the jobs-->
     <!--loop over all the jobs.  Add loop syntax to the HTML element we want to repeat (th:each)-->
@@ -59,3 +54,6 @@
             <td th:text="${field.value}"></td>
         </tr>
     </table>
+</div>
+</body>
+</html>
